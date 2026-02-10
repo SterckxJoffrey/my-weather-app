@@ -1,13 +1,168 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #f6f7fb;
+  color: #212529;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.carousel {
+  margin-bottom: 24px;
+}
+
+.custom-carousel-image {
+  width: 100%;
+  height: clamp(280px, 50vh, 650px);
+  object-fit: cover;
+}
+
+.featurette-divider {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0)
+  );
+  margin: 48px 0;
+}
+
+.featurette {
+  margin-bottom: 40px;
+}
+
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.05rem;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Weather search */
+.weather-search .form-control,
+.weather-search .btn {
+  border-radius: 12px;
+}
+
+/* Weather hero (image + overlay + text on top) */
+.weather-hero {
+  position: relative;
+  max-width: 920px;
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Respecte les dimensions / responsive */
+.weather-hero-img {
+  display: block;
+  width: 100%;
+  height: clamp(280px, 42vh, 520px);
+  object-fit: cover;
+}
+
+/* Assombrit légèrement pour lisibilité du texte */
+.weather-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(0, 0, 0, 0.62),
+    rgba(0, 0, 0, 0.25)
+  );
+}
+
+/* Contenu au-dessus de l’image */
+.weather-hero-content {
+  position: absolute;
+  inset: 0;
+  padding: clamp(16px, 3vw, 28px);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.weather-hero-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.weather-hero-city {
+  font-weight: 800;
+  font-size: clamp(18px, 2.2vw, 28px);
+  line-height: 1.1;
+}
+
+.weather-hero-desc {
+  opacity: 0.9;
+  font-size: clamp(12px, 1.3vw, 16px);
+  margin-top: 6px;
+}
+
+.weather-hero-icon {
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
+}
+
+.weather-hero-temp {
+  font-weight: 900;
+  font-size: clamp(46px, 6vw, 86px);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  text-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* Stats en bas */
+.weather-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.weather-pill {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  border-radius: 14px;
+  padding: 12px 12px;
+}
+
+.weather-pill-label {
+  font-size: 12px;
+  opacity: 0.85;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.weather-pill-value {
+  margin-top: 6px;
+  font-size: clamp(16px, 1.6vw, 20px);
+  font-weight: 800;
+}
+
+/* Responsive: stats en 2 colonnes puis 1 */
+@media (max-width: 768px) {
+  .weather-hero-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 420px) {
+  .weather-hero-stats {
+    grid-template-columns: 1fr;
+  }
 }
