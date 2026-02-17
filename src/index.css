@@ -69,7 +69,7 @@ code {
 .weather-hero-img {
   display: block;
   width: 100%;
-  height: clamp(280px, 42vh, 520px);
+  height: clamp(280px, 42vh, 720px);
   object-fit: cover;
 }
 
@@ -129,7 +129,7 @@ code {
 /* Stats en bas */
 .weather-hero-stats {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
 }
 

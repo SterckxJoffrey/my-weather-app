@@ -61,7 +61,15 @@ export default function Weather() {
         temp: Math.round(data.main.temp),
         humidity: data.main.humidity,
         windSpeed: data.wind.speed,
+        ressenti : data.main.feels_like,
         description: data.weather?.[0]?.description || '',
+        visibility : data.visibility,
+        precipitation: data.rain?.["1h"] || data.rain?.["3h"] || 0,
+        sunrise: new Date(data.sys.sunrise * 1000).getHours().toString().padStart(2,'0') 
+             + ':' + new Date(data.sys.sunrise * 1000).getMinutes().toString().padStart(2,'0'),
+        sunset:  new Date(data.sys.sunset * 1000).getHours().toString().padStart(2,'0') 
+             + ':' + new Date(data.sys.sunset * 1000).getMinutes().toString().padStart(2,'0'),
+        windGust: data.wind?.gust || "Non disponible",
         icon: data.weather?.[0]?.icon || '01d',
       });
     } catch (error) {
@@ -148,8 +156,31 @@ export default function Weather() {
                 <div className="weather-pill-label">Ressenti</div>
                 <div className="weather-pill-value">
                   {/* Optionnel : si tu veux, on peut ajouter feels_like */}
-                  {weather.temp}°C
+                  {weather.ressenti}°C
                 </div>
+              </div>
+
+              <div className="weather-pill">
+                <div className="weather-pill-label">Précipitation</div>
+                <div className="weather-pill-value">{weather.precipitation} </div>
+              </div>
+              <div className="weather-pill">
+                <div className="weather-pill-label">Rafale de vent</div>
+                <div className="weather-pill-value">{weather.windGust} </div>
+              </div>
+              <div className="weather-pill">
+                <div className="weather-pill-label">Visibilité</div>
+                <div className="weather-pill-value">{weather.visibility} m</div>
+              </div>
+
+              <div className="weather-pill">
+                <div className="weather-pill-label">Lever de soleil</div>
+                <div className="weather-pill-value">{weather.sunrise} </div>
+              </div>
+
+              <div className="weather-pill">
+                <div className="weather-pill-label">Coucher de soleil</div>
+                <div className="weather-pill-value">{weather.sunset} </div>
               </div>
             </div>
 
