@@ -166,7 +166,7 @@ export default function Weather() {
               </div>
               <div className="weather-pill">
                 <div className="weather-pill-label">Rafale de vent</div>
-                <div className="weather-pill-value">{weather.windGust} </div>
+                <div className="weather-pill-value">{weather.windGust} m/s </div>
               </div>
               <div className="weather-pill">
                 <div className="weather-pill-label">Visibilité</div>
